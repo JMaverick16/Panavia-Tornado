@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<!-- Panavia Tornado Flight Control System by Joshua Davidson (it0uchpods) -->
+
+<PropertyList>
+
+	<filter>
+		<name>Left Taileron</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<expression>
+				<sum>
+					<property>/surface-positions/left-aileron-pos-norm</property>
+					<property>/surface-positions/elevator-pos-norm</property>
+				</sum>
+			</expression>
+		</input>
+		<output>/controls/flight/taileron-left</output>
+		<min>-1.0</min>
+		<max>1.0</max>
+	</filter>
+	
+	<filter>
+		<name>Right Taileron</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<expression>
+				<sum>
+					<property>/surface-positions/left-aileron-pos-norm</property>
+					<product>
+						<property>/surface-positions/elevator-pos-norm</property>
+						<value>-1</value>
+					</product>
+				</sum>
+			</expression>
+		</input>
+		<output>/controls/flight/taileron-right</output>
+		<min>-1.0</min>
+		<max>1.0</max>
+	</filter>
+
+</PropertyList>

@@ -1,26 +1,12 @@
 
 
-<PropertyList include="bombableinclude.xml">
- <path>Aircraft/Panavia-Tornado/Models/TornadoGR4.ac</path>
+<PropertyList>
+ <path>Aircraft/Panavia-Tornado/Models/Tornado-GR4.ac</path>
 
-
- 
-  <!-- Pilot -->
-   <animation>
-        <type>material</type>
-        <object-name>tete</object-name>
-    <object-name>corps</object-name>
-    <object-name>bras</object-name>
-    <object-name>avantbras</object-name>
-    <object-name>main</object-name>
-        <property-base>sim/model/livery</property-base>
-        <texture-prop>texture-pilot</texture-prop>
-        <texture>fighter_pilot.png</texture>
-    </animation>
  
 
  <!-- Glass -->
-<animation>
+<!--animation>
 		<type>shader</type>
 		<shader>chrome</shader>
 		<texture>glass_shader.rgb</texture>
@@ -39,20 +25,7 @@
          <object-name>right_flame</object-name>
          <object-name>right_internal_flame</object-name>
 	   
-    </effect>
-	
-	 <!-- Turns off non rembrant lighting and effects -->
-<animation>
-        <type>select</type>
-       
-	<object-name>CPT-hud-screen</object-name>
-	
-		<condition>
-            <not>
-            <property>/sim/rendering/rembrandt/enabled</property>
-            </not>
-        </condition>
-    </animation>	
+    </effect-->
 
 
    <!-- Solid Surfaces for Rembrandt rendering -->
@@ -105,8 +78,8 @@
     </animation>
 	
 	
-	<effect>
-    <inherits-from>Aircraft/tornado/Models/MetalReflect</inherits-from>
+	<!--effect>
+    <inherits-from>Aircraft/Panavia-Tornado/Models/MetalReflect</inherits-from>
 	<object-name>End_nib</object-name>
     <object-name>FuelHose1</object-name>
     <object-name>FuelHose2</object-name>
@@ -118,12 +91,12 @@
 	<object-name>reversersup.R</object-name>
 	<object-name>reverserdown.L</object-name>
 	<object-name>reverserdown.R</object-name>
-   </effect>
+   </effect-->
 
   <!-- Burner Flame -->
 
- <model>
-    <path>Aircraft/tornado/Models/Effects/Afterburner/EJ200-L.xml</path>
+ <!--model>
+    <path>Aircraft/Panavia-Tornado/Models/Effects/Afterburner/EJ200-L.xml</path>
 	 <offsets>
    <x-m>8.2</x-m>
    <y-m>-0.56</y-m>
@@ -134,20 +107,20 @@
  
  
   <model>
-    <path>Aircraft/tornado/Models/Effects/Afterburner/EJ200-R.xml</path>
+    <path>Aircraft/Panavia-Tornado/Models/Effects/Afterburner/EJ200-R.xml</path>
 	 <offsets>
    <x-m>8.2</x-m>
    <y-m>0.56</y-m>
    <z-m>-0.83</z-m>
   
   </offsets>
-  </model> 
+  </model--> 
   
   <animation>
  <type>rotate</type>
  <object-name>rudder</object-name>
  <property>surface-positions/rudder-pos-norm</property>
- <factor>-12.0</factor>
+ <factor>12.0</factor>
  <axis>
 			<x1-m>5.621</x1-m>
 			<y1-m>0.0</y1-m>
@@ -161,8 +134,8 @@
  <animation>
  <type>rotate</type>
  <object-name>leftaileron</object-name>
- <property>surface-positions/left-taileron-pos-norm</property>
- <factor>5.0</factor>
+ <property>/controls/flight/taileron-left</property>
+ <factor>7.0</factor>
 <center>
 		  <x-m>5.021</x-m>
 		  <y-m>0</y-m>
@@ -178,8 +151,8 @@
 <animation>
  <type>rotate</type>
  <object-name>rightaileron</object-name>
- <property>surface-positions/right-taileron-pos-norm</property>
- <factor>5.0</factor>
+ <property>/controls/flight/taileron-right</property>
+ <factor>-7.0</factor>
 <center>
 		  <x-m>5.021</x-m>
 		  <y-m>0</y-m>
@@ -192,23 +165,8 @@
 	  </axis>
 </animation>
   
-  
- <!-- no shadows -->
- <animation>
-  <type>noshadow</type>
-  <object-name>markings</object-name>
-  <object-name>left_flame</object-name>
-  <object-name>left_internal_flame</object-name>
-  <object-name>right_flame</object-name>
-  <object-name>right_internal_flame</object-name>
-  <object-name>red_light</object-name>
-  <object-name>green_light</object-name>
-  <object-name>lhcondensation cone</object-name>
-  <object-name>rhcondensation cone</object-name>
-  <object-name>cockpit</object-name>
- </animation>
 
- <!-- wing sweep tornado 25(neutral), 45, 67 degrees-->
+ <!-- wing sweep Panavia-Tornado 25(neutral), 45, 67 degrees-->
   
   <animation>
 	  <type>rotate</type>
@@ -222,7 +180,7 @@
 	 <object-name>rightinnerwingtank</object-name>
 	 <object-name>spoilerright</object-name>
 	 <name>rightvapour</name>
-	  <property>surface-positions/wing-sweep-pos-norm</property>
+	  <property>/fdm/jsbsim/fcs/wing-sweep</property>
 	  
 	  <interpolation>
 		  <entry>
@@ -271,9 +229,9 @@
  <type>rotate</type>
   <object-name>spoilerright</object-name>   
   <property>surface-positions/right-aileron-pos-norm</property>
- <min-deg>-50</min-deg> 
+ <min-deg>-30</min-deg> 
 		<max-deg>0</max-deg> 
-		<factor>50</factor> 
+		<factor>-30</factor> 
 		<center> 
 			<x-m>1.35</x-m> 
 			<y-m>2.45384</y-m> 
@@ -294,7 +252,7 @@
 	  <object-name>rightinner_pylon</object-name>
 	 <object-name>rightinnerwingtank</object-name>
 	  
-	 <property>surface-positions/wing-sweep-pos-norm</property>
+	 <property>/fdm/jsbsim/fcs/wing-sweep</property>
 	 
 	 <interpolation>
 		 <entry>
@@ -327,7 +285,7 @@
 	 <type>rotate</type>
 	<name>rightvapour</name>
 	  <object-name>rightouter_pylon</object-name>
-	 <property>surface-positions/wing-sweep-pos-norm</property>
+	 <property>/fdm/jsbsim/fcs/wing-sweep</property>
 	 
 	 <interpolation>
 		 <entry>
@@ -368,7 +326,7 @@
 	 <object-name>leftinnerwingtank</object-name>
 	  <object-name>spoilerleft</object-name>
 	  <name>leftvapour</name>
-	 <property>surface-positions/wing-sweep-pos-norm</property>
+	 <property>/fdm/jsbsim/fcs/wing-sweep</property>
 	 
 	 <interpolation>
 		 <entry>
@@ -418,9 +376,9 @@
  <type>rotate</type>
   <object-name>spoilerleft</object-name>   
   <property>surface-positions/left-aileron-pos-norm</property>
-  <min-deg>-50</min-deg> 
+  <min-deg>-30</min-deg> 
 		<max-deg>0</max-deg> 
-		<factor>-50</factor> 
+		<factor>30</factor> 
   <center> 
 			<x-m>1.35</x-m> 
 			<y-m>-2.45384</y-m> 
@@ -439,7 +397,7 @@
 	  <object-name>leftinner_pylon</object-name>
 	 <object-name>leftinnerwingtank</object-name>
 	  
-	 <property>surface-positions/wing-sweep-pos-norm</property>
+	 <property>/fdm/jsbsim/fcs/wing-sweep</property>
 	 
 	 <interpolation>
 		 <entry>
@@ -472,7 +430,7 @@
 	 <type>rotate</type>
 	<name>leftvapour</name>
 	  <object-name>leftouter_pylon</object-name>
-	  <property>surface-positions/wing-sweep-pos-norm</property>
+	  <property>/fdm/jsbsim/fcs/wing-sweep</property>
 	 <interpolation>
 		 <entry>
 			 <ind>0.0</ind>
@@ -701,7 +659,7 @@
   <object-name>Cylinder.003</object-name>
   <object-name>Cylinder.002</object-name>
   <object-name>tyrel</object-name>
-    <property>gear/gear[1]/compression-norm</property>
+    <property>gear/gear[2]/compression-norm</property>
     <factor>0.95</factor>
     <axis>
       <x>0.1</x>
@@ -716,7 +674,7 @@
   <object-name>Cylinder.008</object-name>
   <object-name>Cylinder.006</object-name>
   <object-name>tyrer</object-name>
-    <property>gear/gear[2]/compression-norm</property>
+    <property>gear/gear[1]/compression-norm</property>
     <factor>0.95</factor>
     <axis>
       <x>0.1</x>
@@ -1356,28 +1314,6 @@
 			<z>0</z> 
 		</axis> 
 	</animation>
-	
- <animation>
-  <type>select</type>
-  <object-name>lhcondensation cone</object-name>
-  <condition>
-   <greater-than>
-    <property>orientation/alpha-deg</property>
-    <value>9.0</value>
-   </greater-than>
-  </condition>
- </animation>
-
- <animation>
-  <type>select</type>
-  <object-name>rhcondensation cone</object-name>
-  <condition>
-   <greater-than>
-    <property>orientation/alpha-deg</property>
-    <value>9.0</value>
-   </greater-than>
-  </condition>
- </animation>
 
  <animation>
   <type>rotate</type>
