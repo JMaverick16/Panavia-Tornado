@@ -224,6 +224,8 @@
 
  </propulsion>
 
+ <system file="throttle"/>
+
  <flight_control name="Tornado">
 
   <channel name="Pitch">
