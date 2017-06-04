@@ -229,7 +229,7 @@
   <channel name="Pitch">
 
    <summer name="Pitch Trim Sum">
-      <input>fcs/elevator-cmd-norm</input>
+      <input>/controls/flight/elevator-fbw</input>
       <input>fcs/pitch-trim-cmd-norm</input>
       <clipto>
         <min> -1 </min>
@@ -264,7 +264,7 @@
   <channel name="Roll">
 
    <summer name="Roll Trim Sum">
-      <input>fcs/aileron-cmd-norm</input>
+      <input>/controls/flight/aileron-fbw</input>
       <input>fcs/roll-trim-cmd-norm</input>
       <clipto>
         <min> -1 </min>
@@ -592,7 +592,7 @@
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>fcs/flap-pos-deg</property>
-           <value> 0.00080 </value>
+           <value> 0.00110 </value>
          </product>
     </function>
 
@@ -612,7 +612,7 @@
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>fcs/speedbrake-pos-norm</property>
-           <value>0.024</value>
+           <value>0.038</value>
          </product>
     </function>
 

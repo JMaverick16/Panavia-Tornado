@@ -660,7 +660,7 @@
   <object-name>Cylinder.002</object-name>
   <object-name>tyrel</object-name>
     <property>gear/gear[2]/compression-norm</property>
-    <factor>0.95</factor>
+    <factor>0.75</factor>
     <axis>
       <x>0.1</x>
       <y>0</y>
@@ -675,7 +675,7 @@
   <object-name>Cylinder.006</object-name>
   <object-name>tyrer</object-name>
     <property>gear/gear[1]/compression-norm</property>
-    <factor>0.95</factor>
+    <factor>0.75</factor>
     <axis>
       <x>0.1</x>
       <y>0</y>

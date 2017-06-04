@@ -51,6 +51,9 @@
 			<autopilot n="0">
 				<path>Aircraft/Panavia-Tornado/Systems/flight-controls.xml</path>
 			</autopilot>
+			<autopilot n="1">
+				<path>Aircraft/Panavia-Tornado/Systems/it-fbw.xml</path>
+			</autopilot>
 		</systems>
 		
 		<menubar>
@@ -64,6 +67,15 @@
 							<command>nasal</command>
 							<script>
 							tornado.doAutoStartup();
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Toggle FBW</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							tornado.toggleFBW();
 							</script>
 						</binding>
 					</item>
@@ -81,6 +93,10 @@
 			<sweep>1</sweep>
 		</flight>
 	</controls>
+	
+	<it-fbw n="0">
+		<enable>0</enable>
+	</it-fbw>
 
 	<nasal>
 		<tornado>
