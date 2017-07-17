@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Wing Leveller/Pitch Stabilization Augmentation System -->
+<!-- Flight Controll Augmentation System -->
 
 <PropertyList>
 	
@@ -17,9 +17,9 @@
             <expression>
                 <table>
                     <property>/controls/flight/aileron</property> 
-                    <entry><ind>-1</ind><dep>-30.0</dep></entry>
+                    <entry><ind>-1</ind><dep>-40.0</dep></entry>
                     <entry><ind> 0</ind><dep>  0.0</dep></entry>
-                    <entry><ind> 1</ind><dep> 30.0</dep></entry>
+                    <entry><ind> 1</ind><dep> 40.0</dep></entry>
                 </table>
             </expression>
         </input>
@@ -57,12 +57,12 @@
 			<property>/controls/flight/aileron-fbw-cmd</property>
 		</output>
 		<config>
-			<Kp>0.11</Kp>
+			<Kp>0.05</Kp>
 			<beta>1</beta>
 			<alpha>0.1</alpha>
 			<gamma>0</gamma>
 			<Ti>0.5</Ti>
-			<Td>0.001</Td>
+			<Td>0.01</Td>
 			<u_min>-1</u_min>
 			<u_max>1</u_max>
 		</config>
@@ -125,13 +125,47 @@
         <type>gain</type>
         <gain>1</gain>
         <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
+        <input>
+			<condition>
+				<and>
+					<greater-than>
+						<property>/orientation/roll-deg</property>
+						<value>-90</value>
+					</greater-than>
+					<less-than>
+						<property>/orientation/roll-deg</property>
+						<value>90</value>
+					</less-than>
+				</and>
+			</condition>
             <expression>
                 <table>
                     <property>/controls/flight/elevator</property> 
-                    <entry><ind> 1</ind><dep>-15.0</dep></entry>
+                    <entry><ind> 1</ind><dep>-20.0</dep></entry>
                     <entry><ind> 0</ind><dep>  0.0</dep></entry>
-                    <entry><ind>-1</ind><dep> 15.0</dep></entry>
+                    <entry><ind>-1</ind><dep> 20.0</dep></entry>
+                </table>
+            </expression>
+        </input>
+        <input>
+			<condition>
+				<or>
+					<greater-than>
+						<property>/orientation/roll-deg</property>
+						<value>90</value>
+					</greater-than>
+					<less-than>
+						<property>/orientation/roll-deg</property>
+						<value>-90</value>
+					</less-than>
+				</or>
+			</condition>
+            <expression>
+                <table>
+                    <property>/controls/flight/elevator</property> 
+                    <entry><ind> 1</ind><dep> 20.0</dep></entry>
+                    <entry><ind> 0</ind><dep>  0.0</dep></entry>
+                    <entry><ind>-1</ind><dep>-20.0</dep></entry>
                 </table>
             </expression>
         </input>
@@ -169,12 +203,41 @@
 			<property>/controls/flight/elevator-fbw-cmd</property>
 		</output>
 		<config>
-			<Kp>-0.12</Kp>
+			<Kp>
+				<condition>
+					<and>
+						<greater-than>
+							<property>/orientation/roll-deg</property>
+							<value>-90</value>
+						</greater-than>
+						<less-than>
+							<property>/orientation/roll-deg</property>
+							<value>90</value>
+						</less-than>
+					</and>
+				</condition>
+				<value>-0.07</value>
+			</Kp>
+			<Kp>
+				<condition>
+					<or>
+						<greater-than>
+							<property>/orientation/roll-deg</property>
+							<value>90</value>
+						</greater-than>
+						<less-than>
+							<property>/orientation/roll-deg</property>
+							<value>-90</value>
+						</less-than>
+					</or>
+				</condition>
+				<value>0.07</value>
+			</Kp>
 			<beta>1</beta>
 			<alpha>0.1</alpha>
 			<gamma>0</gamma>
 			<Ti>0.5</Ti>
-			<Td>0.001</Td>
+			<Td>0.01</Td>
 			<u_min>-1</u_min>
 			<u_max>1</u_max>
 		</config>
