@@ -1,14 +1,12 @@
 <?xml version="1.0"?>
 
-<!-- 2017 (c) Justin Nicholson aka pinto -->
+<!-- (c) 2017 Justin Nicholson (pinto) -->
 <!-- GPLv2+ -->
 
 <system name="throttle">
 
 	<channel name="Throttle">
 
-		<!-- throttle distributions, split milthrust and augthrust -->
-		
 		<fcs_function name="trash/asdf1234">
 			<function>
 				<table>
@@ -37,8 +35,6 @@
 			<output>fcs/throttle-pos-norm[1]</output>
 		</fcs_function>
 
-
 	</channel>
 
 </system>
-

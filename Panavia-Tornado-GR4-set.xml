@@ -51,9 +51,6 @@
 			<autopilot n="0">
 				<path>Aircraft/Panavia-Tornado/Systems/flight-controls.xml</path>
 			</autopilot>
-			<autopilot n="1">
-				<path>Aircraft/Panavia-Tornado/Systems/it-fbw.xml</path>
-			</autopilot>
 		</systems>
 		
 		<menubar>
@@ -62,20 +59,11 @@
 					<label>Panavia Tornado GR4</label>
 					<enabled type="bool">true</enabled>
 					<item>
-						<label>Autostart</label>
+						<label>Magic Startup</label>
 						<binding>
 							<command>nasal</command>
 							<script>
-							tornado.doAutoStartup();
-							</script>
-						</binding>
-					</item>
-					<item>
-						<label>Toggle FBW</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-							tornado.toggleFBW();
+							libraries.doMagicStartup();
 							</script>
 						</binding>
 					</item>
@@ -87,21 +75,14 @@
 	
 	<controls n="0">
 		<flight n="0">
-			<aileron-fde>0</aileron-fde>
-			<elevator-fde>0</elevator-fde>
-			<rudder-fde>0</rudder-fde>
 			<sweep>1</sweep>
 		</flight>
 	</controls>
-	
-	<it-fbw n="0">
-		<enable>0</enable>
-	</it-fbw>
 
 	<nasal>
-		<tornado>
+		<libraries>
 			<file>Aircraft/Panavia-Tornado/Nasal/libraries.nas</file>
-		</tornado>
+		</libraries>
 	</nasal>
 
 	<input>

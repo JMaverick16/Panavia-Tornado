@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <name>debug-module</name>
+    <layout>vbox</layout>
+    <default-padding>0</default-padding>
+    <modal>false</modal>
+    <width>750</width>
+    <valign>top</valign>
+
+
+    <group>
+        <layout>vbox</layout>
+        <slider>
+            <name>a1</name>
+            <property>/gear/a1</property>
+            <min>-1</min>
+            <max>1</max>
+            <live>1</live>
+            <binding>
+                <command>dialog-apply</command>
+                <object-name>a1</object-name>
+            </binding>
+        </slider>
+        <slider>
+            <name>a2</name>
+            <property>/gear/a2</property>
+            <min>-1</min>
+            <max>1</max>
+            <live>1</live>
+            <binding>
+                <command>dialog-apply</command>
+                <object-name>a2</object-name>
+            </binding>
+        </slider>
+        <slider>
+            <name>a3</name>
+            <property>/gear/a3</property>
+            <min>-1</min>
+            <max>1</max>
+            <live>1</live>
+
+            <binding>
+                <command>dialog-apply</command>
+                <object-name>a3</object-name>
+            </binding>
+        </slider>
+        <slider>
+            <name>a3</name>
+            <property>/gear/a4</property>
+            <min>0</min>
+            <max>1</max>
+            <live>1</live>
+
+            <binding>
+                <command>dialog-apply</command>
+                <object-name>a3</object-name>
+            </binding>
+        </slider>
+
+    </group>
+    <hrule/>
+    <button>
+        <legend>Reset</legend>
+        <binding>
+            <command>nasal</command>
+            <script>setprop("/gear/a1",0);setprop("/gear/a2",0);setprop("/gear/a3",0);</script>
+        </binding>
+    </button>    <group>
+        <layout>hbox</layout>
+        <button>
+            <legend>Close</legend>
+            <default>true</default>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+</PropertyList>
